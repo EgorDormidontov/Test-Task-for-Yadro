@@ -84,7 +84,8 @@ http://localhost:4200
 ng serve --port 4300
 ```
 
-```Пример команды для первого запуска
+Пример команды для первого запуска
+```
 cd E:\Test-Task-for-Yadro\users-app-angular\users-app
 npm install
 npm start
