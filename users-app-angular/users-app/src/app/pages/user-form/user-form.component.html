@@ -1,0 +1,65 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">{{ isEditMode ? 'Редактирование пользователя' : 'Создание пользователя' }}</h1>
+    <p class="page-subtitle">Заполните форму и сохраните данные через внешний API</p>
+  </div>
+
+  <a nz-button routerLink="/users">Назад к списку</a>
+</div>
+
+<nz-spin [nzSpinning]="loading">
+  <nz-card class="form-card">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Имя</nz-form-label>
+        <nz-form-control
+          [nzSpan]="18"
+          [nzValidateStatus]="form.controls.name"
+          nzErrorTip="Введите имя"
+        >
+          <input nz-input formControlName="name" placeholder="Например, Leanne Graham" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Username</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <input nz-input formControlName="username" placeholder="Например, Bret" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+        <nz-form-control
+          [nzSpan]="18"
+          [nzValidateStatus]="form.controls.email"
+          nzErrorTip="Введите корректный email"
+        >
+          <input nz-input formControlName="email" placeholder="name@example.com" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Телефон</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <input nz-input formControlName="phone" placeholder="Например, 1-770-736-8031" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Сайт</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <input nz-input formControlName="website" placeholder="example.com" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <div class="actions">
+        <button nz-button nzType="primary" htmlType="submit" [nzLoading]="saving">
+          {{ isEditMode ? 'Сохранить' : 'Создать' }}
+        </button>
+
+        <a nz-button routerLink="/users">Отмена</a>
+      </div>
+    </form>
+  </nz-card>
+</nz-spin>

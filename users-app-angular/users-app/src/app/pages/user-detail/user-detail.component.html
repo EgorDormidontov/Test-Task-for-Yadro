@@ -1,0 +1,35 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Детали пользователя</h1>
+    <p class="page-subtitle">Просмотр полной информации о выбранном пользователе</p>
+  </div>
+
+  <a nz-button routerLink="/users">Назад к списку</a>
+</div>
+
+<nz-spin [nzSpinning]="loading">
+  <nz-card *ngIf="user" class="user-card" [nzTitle]="user.name">
+    <nz-descriptions nzBordered [nzColumn]="1">
+      <nz-descriptions-item nzTitle="ID">{{ user.id }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Username">{{ user.username || '—' }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Email">{{ user.email }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Телефон">{{ user.phone || '—' }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="Сайт">{{ user.website || '—' }}</nz-descriptions-item>
+    </nz-descriptions>
+
+    <div class="actions">
+      <a nz-button nzType="primary" [routerLink]="['/users', user.id, 'edit']">Редактировать</a>
+    </div>
+  </nz-card>
+
+  <nz-result
+    *ngIf="notFound && !loading"
+    nzStatus="404"
+    nzTitle="Пользователь не найден"
+    nzSubTitle="Проверьте адрес страницы или вернитесь к списку пользователей"
+  >
+    <div nz-result-extra>
+      <a nz-button nzType="primary" routerLink="/users">К списку</a>
+    </div>
+  </nz-result>
+</nz-spin>

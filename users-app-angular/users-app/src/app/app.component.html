@@ -1,0 +1,14 @@
+<nz-layout class="app-layout">
+  <nz-header class="app-header">
+    <a class="logo" routerLink="/users">Прототип приложения для Yadro</a>
+
+    <nav class="nav">
+      <a nz-button nzType="link" routerLink="/users" routerLinkActive="active-link">Пользователи</a>
+      <a nz-button nzType="primary" routerLink="/users/new">Создать</a>
+    </nav>
+  </nz-header>
+
+  <nz-content class="app-content">
+    <router-outlet></router-outlet>
+  </nz-content>
+</nz-layout>

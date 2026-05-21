@@ -1,0 +1,51 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav a[nz-button][nztype='link'],
+.nav a[nz-button] {
+  color: #fff;
+}
+
+.active-link {
+  font-weight: 700;
+}
+
+.app-content {
+  padding: 32px;
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    line-height: normal;
+  }
+
+  .app-content {
+    padding: 16px;
+  }
+}
